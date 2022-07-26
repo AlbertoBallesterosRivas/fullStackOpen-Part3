@@ -17,6 +17,8 @@ app.use(
     ].join(" ");
   })
 );
+const cors = require('cors')
+app.use(cors())
 let persons = [
   {
     id: 1,
