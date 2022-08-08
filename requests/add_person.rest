@@ -1,5 +1,5 @@
-POST https://still-wave-50925.herokuapp.com/api/persons/
-content-type: application/json
+POST http://localhost:3001/api/persons
+Content-Type: application/json
 
 {
     "name": "Liisa Marttinen",

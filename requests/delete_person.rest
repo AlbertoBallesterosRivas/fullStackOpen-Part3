@@ -1,1 +1,1 @@
-DELETE https://still-wave-50925.herokuapp.com/api/persons/4
+DELETE https://localhost:3001/api/persons/2
