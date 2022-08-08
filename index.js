@@ -3,25 +3,6 @@ const app = express();
 app.use(express.static('build'));
 app.use(express.json());
 
-// var morgan = require("morgan");
-// app.use(
-//   morgan(function (tokens, req, res) {
-//     return [
-//       tokens.method(req, res),
-//       tokens.url(req, res),
-//       tokens.status(req, res),
-//       tokens.res(req, res, "content-length"),
-//       "-",
-//       tokens["response-time"](req, res),
-//       "ms",
-//       JSON.stringify(req.body),
-//     ].join(" ");
-//   })
-// );
-// const cors = require('cors')
-// app.use(cors())
-
-
 require('dotenv').config()
 const Person = require('./models/person')
 const mongoose = require('mongoose')
@@ -38,21 +19,6 @@ mongoose.connect(url)
   .catch((error) => {
     console.log('error connecting to MongoDB:', error.message)
   })
-
-// const personSchema = new mongoose.Schema({
-//   name: String,
-//   number: String,
-// });
-
-// const Person = mongoose.model("Person", personSchema);
-
-// personSchema.set('toJSON', {
-//   transform: (document, returnedObject) => {
-//     returnedObject.id = returnedObject._id.toString()
-//     delete returnedObject._id
-//     delete returnedObject.__v
-//   }
-// })
 
 app.get("/api/persons", (request, response) => {
   Person.find({}).then(persons => {
